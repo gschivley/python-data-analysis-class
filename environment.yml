@@ -1,0 +1,21 @@
+name: pydata-issst
+channels:
+    - defaults
+    - conda-forge
+    - damianavila82
+dependencies:
+    - python=3.6
+    - matplotlib=2.2
+    - numpy
+    - pandas=0.23.0
+    - jupyter
+    - jupyterlab
+    - seaborn
+    - nb_conda_kernels
+    - xlrd
+    - joblib
+    - scikit-learn
+    - openpyxl
+    - altair
+    - vega3
+    - rise
