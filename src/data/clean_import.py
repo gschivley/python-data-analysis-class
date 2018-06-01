@@ -46,7 +46,7 @@ def import_plant_capacity(path):
 
     """
 
-    df = pd.read_excel(path, sheet_name='Operating', header=1,
+    df = pd.read_excel(path, sheet_name='Operating', header=1, na_values=[' '],
                        skipfooter=1)
 
     df.columns = ((df.columns.str.strip()
