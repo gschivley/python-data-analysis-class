@@ -77,3 +77,6 @@ target/
 
 # Mac OS-specific storage files
 .DS_Store
+
+# zip compressed files
+*.zip
