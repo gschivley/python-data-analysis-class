@@ -1,4 +1,5 @@
 import pandas as pd
+import calendar
 
 
 def import_epa_emissions(path):
@@ -27,6 +28,8 @@ def import_epa_emissions(path):
                              .str.replace('(', '')
                              .str.replace(')', '')))
 
+    df.rename(columns={'facility_id_orispl': 'plant_id'}, inplace=True)
+
     return df
 
 
@@ -42,11 +45,11 @@ def import_plant_capacity(path):
     Returns
     -------
     DataFrame
-        Clean dataframe of plant capacity
+        Clean dataframe of plant capacity grouped by facility
 
     """
 
-    df = pd.read_excel(path, sheet_name='Operating', header=1, na_values=[' '],
+    df = pd.read_excel(path, sheet_name='Operable', header=1, na_values=[' '],
                        skipfooter=1)
 
     df.columns = ((df.columns.str.strip()
@@ -54,9 +57,16 @@ def import_plant_capacity(path):
                              .str.replace(' ', '_')
                              .str.replace('-', '')
                              .str.replace('(', '')
-                             .str.replace(')', '')))
+                             .str.replace(')', '')
+                             .str.replace('/', '_')))
 
-    return df
+    df.rename(columns={'plant_code': 'plant_id'}, inplace=True)
+
+    # Group data to facility level. Use state in the grouping to keep the data.
+    df_grouped = df.groupby(['plant_id', 'state'], as_index=False).sum()
+    # df_grouped = df_grouped.merge(df['state'], on='plant_id')
+
+    return df_grouped
 
 
 def import_plant_generation(path):
@@ -94,5 +104,11 @@ def import_plant_generation(path):
                      as_index=False).sum())
 
     df['month'] = df.month.str.replace('netgen_', '')
+
+    # Change month from names to integer values and re-sort
+    month_map = {month: idx for idx, month in enumerate(calendar.month_name)}
+    df['month'] = df.month.str.capitalize().map(month_map)
+    df.sort_values(by=['plant_id', 'month'], inplace=True)
+    df.reset_index(drop=True, inplace=True)
 
     return df
