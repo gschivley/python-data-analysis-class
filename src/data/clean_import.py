@@ -98,7 +98,7 @@ def import_plant_generation(path):
     gen_cols = [col for col in df.columns if 'netgen' in col]
 
     df = (pd.melt(df, id_vars=['plant_id'],
-                  value_vars=gen_cols, value_name='net_gen',
+                  value_vars=gen_cols, value_name='net_gen_mwh',
                   var_name='month')
             .groupby(['plant_id', 'month'],
                      as_index=False).sum())
