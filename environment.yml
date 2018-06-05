@@ -5,9 +5,9 @@ channels:
     - damianavila82
 dependencies:
     - python=3.6
-    - matplotlib=2.2
+    - matplotlib
     - numpy
-    - pandas=0.23.0
+    - pandas
     - jupyter
     - jupyterlab
     - seaborn
