@@ -38,6 +38,24 @@ To make things easy here are instructions for creating an environment from the `
 - Conda will install Python, the required packages, and all necessary dependencies
 - To [activate the environment][6], type `activate pydata-issst` (Windows) or `conda activate pydata-issst` (Mac or Linux)
 
+## Workshop overview
+
+### Notebooks and basics
+I'll start by talking about Jupyter notebooks. They are an awesome way of interactively exploring and manipulating data. After that I'll cover some basics of Python objects. This section will be short and focus on the things that I find most useful in my own work. For a (slightly) longer overview of Python basics geared towards data analysis I recommend [A Whirlwind Tour of Python][7].
+
+####
+Jupyter and JupyterLab
+Jupyter notebooks are like scientific lab books for code where you can do work interactively and view results as you go. [JupyterLab is the next-generation web-based user interface for Project Jupyter.][12] I have mostly switched over to JupyterLab, but still occasionally use the older style notebooks. The
+
+
+### Pandas
+Next we'll dive into the Pandas library for loading, manipulating, and writing data. Quite often most of the work is making sure that data from external sources is clean and ready analyze. This can involve reformatting column names, checking data types, reshaping data from [wide to tidy-format][8], and generally getting everything ready for the real analysis.
+
+In this workshop we'll load data on electricity [generation][9], [capacity][10], and [environmental emissions][11]. These data are much more useful when combined together, so once they have been loaded we will combine them and output the results to a single csv.
+
+### Visualization
+Finally, we'll do some visual exploratory data analysis. Along the way I'll discuss data types, plot types, and how to select color palettes.
+
 
 
 
@@ -54,3 +72,9 @@ To make things easy here are instructions for creating an environment from the `
 [4]: https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/
 [5]: https://conda.io/docs/user-guide/tasks/manage-environments.html#managing-environments
 [6]: https://conda.io/docs/user-guide/tasks/manage-environments.html#activating-an-environment
+[7]: https://nbviewer.jupyter.org/github/jakevdp/WhirlwindTourOfPython/blob/master/Index.ipynb
+[8]: http://vita.had.co.nz/papers/tidy-data.html
+[9]: https://www.eia.gov/electricity/data/eia923
+[10]: https://www.eia.gov/electricity/data/eia860
+[11]: https://ampd.epa.gov/ampd/
+[12]: https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
