@@ -20,5 +20,5 @@ dependencies:
     - vega3
     - rise
     - jupyter_contrib_nbextensions
-    - pip
+    - pip:
         - vega_datasets
