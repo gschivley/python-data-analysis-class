@@ -167,6 +167,7 @@ def find_primary_gen_fuel(df):
     primary_fuel = df_fuel.loc[primary_fuel_idx,
                                ['aer_fuel_type_code', 'plant_id']]
 
-    primary_fuel.rename(columns={'aer_fuel_type_code': 'primary_gen_fuel'})
+    primary_fuel.rename(columns={'aer_fuel_type_code': 'primary_gen_fuel'},
+                        inplace=True)
 
     return primary_fuel
