@@ -33,24 +33,16 @@ def import_epa_emissions(path):
     return df
 
 
-def find_max_tech_capacity(df, group):
+def find_max_tech_capacity(df):
 
-    max_tech = {'plant_id': [],
-                'technology': []}
+    max_tech = {}
 
-    for plant, _df in df.groupby(group):
-        max_tech['plant_id'].append(plant)
+    for plant in capacity['plant_id'].unique():
+        tech = sum_cap.loc[plant, 'nameplate_capacity_mw'].idxmax()
 
-        try:
-            tech = _df.loc[_df['summer_capacity_mw'].idxmax(), 'technology']
-        except TypeError:
-            tech = _df.loc[_df['nameplate_capacity_mw'].idxmax(),
-                           'technology']
-        max_tech['technology'].append(tech)
+        max_tech[plant] = tech
 
-    max_tech_df = pd.DataFrame(max_tech)
-
-    return max_tech_df
+    return max_tech
 
 
 def import_plant_capacity(path):
@@ -87,7 +79,8 @@ def import_plant_capacity(path):
 
     # Add the technology of maximum capacity for each plant
     max_capacity_tech = find_max_tech_capacity(df, 'plant_id')
-    final_df = pd.merge(df_grouped, max_capacity_tech, on='plant_id')
+    
+    df_grouped['technology'] = df_grouped['plant_id'].map(max_capacity_tech)
 
     return final_df
 
