@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/gschivley/python-data-analysis-class/master)
+Launch a live server to run all of these notebooks live using [binder](https://mybinder.org) [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/gschivley/python-data-analysis-class/master)
 
 # An introduction to data analysis in Python
 The material here is a compilation of concepts, practices, and tools that I've found useful for doing data analysis in Python. Most of it relates to writing code but some is about basic project structure and tools. While Python is a flexible and powerful open-source programming language, data analysis can be difficult to do with only the built-in functions. Many of the tools I'll cover here are packages that provide additional functionality for numeric computation, data import/export, data manipulation, and visualization.
@@ -30,7 +30,7 @@ If you don't know how to use git just download and unzip this repository into a 
 ### Create a conda environment
 Each new project should start with a clean environment to ensure that you don't have dependency conflicts. An old project (Project A) might use features from a package that have since been depreciated. Your new Project B might use new features from the same package. Or each might use packages that require different versions of a third package. Create an environment for each package and you don't have to worry about dependency issues.
 
-I've included an `environment.yml` file in this repository. It has everything you need to recreate the environment I used to run the code in this tutorial. Learn more about how to [manage environments here][5].
+I've included an `environment.yml` file in this repository. It has everything you need to recreate the environment I used to run the code in this tutorial. Learn more about how to [manage environments here][5]. New environments can be created with an `environment.yml` file (as described below) or using conda commands.
 
 To make things easy here are instructions for creating an environment from the `environment.yml` file:
 - Open terminal or command prompt and navigate to this folder (`python-data-analysis-class`)
@@ -51,7 +51,7 @@ Jupyter notebooks are like scientific lab books for code where you can do work i
 ### Pandas
 Next we'll dive into the Pandas library for loading, manipulating, and writing data. Quite often most of the work is making sure that data from external sources is clean and ready analyze. This can involve reformatting column names, checking data types, reshaping data from [wide to tidy-format][8], and generally getting everything ready for the real analysis.
 
-In this workshop we'll load data on electricity [generation][9], [capacity][10], and [environmental emissions][11]. These data are much more useful when combined together, so once they have been loaded we will combine them and output the results to a single csv.
+In this workshop we'll load data on electricity [generation][9], [capacity][10], and [environmental emissions][11]. These data are much more useful when combined together, so once they have been loaded we will combine (join) them and output the results to a single csv.
 
 ### Visualization
 Finally, we'll do some visual exploratory data analysis. Along the way I'll discuss data types, plot types, and how to select color palettes.
