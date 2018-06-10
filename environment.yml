@@ -5,7 +5,7 @@ channels:
     - damianavila82
 dependencies:
     - python=3.6
-    - conda
+    # - conda
     - matplotlib
     - numpy
     - pandas
