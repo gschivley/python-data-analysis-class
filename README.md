@@ -9,6 +9,8 @@ Excel is easy because it only requires double-clicking on a file to open it and 
 ### Install Anaconda Python distribution
 If you haven't already done so, [download and install the Anaconda distribution of Python 3.6][1]. Anaconda provides a base installation with most packages needed for data analysis and a few extra useful tools. If you don't already have a preferred text editor you can use Spyder, which comes with the Anaconda installation.
 
+If you already have Python 3.6 and don't want the whole Ananconda installation go ahead and just download/install [Miniconda](https://conda.io/miniconda.html). Installation instructions are [here](https://conda.io/docs/user-guide/install/index.html#regular-installation).
+
 #### Conda
 We will be using conda, which is a package management system and environment management system that comes with the Anaconda distribution. There are other Python package management systems - like [pip][2] - and you may run across packages that can be installed with pip and not conda. But conda has significant advantages for managing numeric/scientific packages so it will be our primary management system.
 
@@ -33,7 +35,8 @@ Each new project should start with a clean environment to ensure that you don't 
 I've included an `environment.yml` file in this repository. It has everything you need to recreate the environment I used to run the code in this tutorial. Learn more about how to [manage environments here][5]. New environments can be created with an `environment.yml` file (as described below) or using conda commands.
 
 To make things easy here are instructions for creating an environment from the `environment.yml` file:
-- Open terminal or command prompt and navigate to this folder (`python-data-analysis-class`)
+- Open terminal (Mac) or Anaconda Prompt (Windows) and navigate to this folder (`python-data-analysis-class`)
+  - If Anaconda Prompt isn't available on your Windows machine after installing Anaconda or Miniconda, try using the regular command prompt. Contact me if this doesn't work.
 - Once you are in the folder, type `conda env create -f environment.yml`
 - Conda will install Python, the required packages, and all necessary dependencies
 - To [activate the environment][6], type `activate pydata-issst` (Windows) or `conda activate pydata-issst` (Mac or Linux)
