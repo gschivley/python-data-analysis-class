@@ -33,8 +33,23 @@ def import_epa_emissions(path):
     return df
 
 
-def find_max_tech_capacity(df):
+def find_max_tech_capacity(capacity):
+    """
+    Calculate the technology with greatest capacity at each plant.
 
+    Parameters
+    ----------
+    capacity : DataFrame
+        dataframe with capacity by generator at every plant
+
+    Returns
+    -------
+    dictionary
+        mapping of plant_id to the technology with largest total capacity
+
+    """
+
+    sum_cap = capacity.groupby(['plant_id', 'technology']).sum()
     max_tech = {}
 
     for plant in capacity['plant_id'].unique():
@@ -78,11 +93,11 @@ def import_plant_capacity(path):
     df_grouped = df.groupby(['plant_id', 'state'], as_index=False).sum()
 
     # Add the technology of maximum capacity for each plant
-    max_capacity_tech = find_max_tech_capacity(df, 'plant_id')
-    
+    max_capacity_tech = find_max_tech_capacity(df)
+
     df_grouped['technology'] = df_grouped['plant_id'].map(max_capacity_tech)
 
-    return final_df
+    return df_grouped
 
 
 def import_plant_generation(path):
