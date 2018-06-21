@@ -40,7 +40,7 @@ To make things easy here are instructions for creating an environment from the `
   - If Anaconda Prompt isn't available on your Windows machine after installing Anaconda or Miniconda, try using the regular command prompt. Contact me if this doesn't work.
 - Once you are in the folder, type `conda env create -f environment.yml`
 - Conda will install Python, the required packages, and all necessary dependencies
-- To [activate the environment][6], type `activate pydata-issst` (Windows) or `conda activate pydata-issst` (Mac or Linux)
+- To [activate the environment][6], type `activate pydata-issst` (Windows) or `conda activate pydata-issst` (Mac or Linux). If you have an older version of conda on a Mac or linux you might need to type `source activate pydata-issst`.
 
 ## Workshop overview
 
@@ -49,13 +49,18 @@ I'll start by talking about Jupyter notebooks. They are an awesome way of intera
 
 ####
 Jupyter and JupyterLab
-Jupyter notebooks are like scientific lab books for code where you can do work interactively and view results as you go. [JupyterLab is the next-generation web-based user interface for Project Jupyter.][12] I have mostly switched over to JupyterLab, but still occasionally use the older style notebooks. The
+Jupyter notebooks are like scientific lab books for code where you can do work interactively and view results as you go. [JupyterLab is the next-generation web-based user interface for Project Jupyter.][12] I have mostly switched over to JupyterLab, but still occasionally use the older style notebooks.
+
+When you are navigating JupyterLab or notebooks you can select a kernel to run code with. Each kernel will be associated with a conda environment. Even if you start Jupyter from one kernel you can run notebooks with the package versions from a different environment.
+
+**Important**
+Sometimes conda environments don't show up as kernels. I've included `nb_conda_kernels` in this environment, which should help solve any related issues. If you can't see a kernel with `pydata-issst` in the name check out [the instructions in this stackoverflow post][13].
 
 
 ### Pandas
 Next we'll dive into the Pandas library for loading, manipulating, and writing data. Quite often most of the work is making sure that data from external sources is clean and ready analyze. This can involve reformatting column names, checking data types, reshaping data from [wide to tidy-format][8], and generally getting everything ready for the real analysis.
 
-In this workshop we'll load data on electricity [generation][9], [capacity][10], and [environmental emissions][11]. These data are much more useful when combined together, so once they have been loaded we will combine (join) them and output the results to a single csv.
+In this workshop we'll load data on electricity [generation][9] and [environmental emissions][11]. These data are much more useful when combined together, so once they have been loaded we will combine (join) them and output the results to a single csv.
 
 ### Visualization
 Finally, we'll do some visual exploratory data analysis. Along the way I'll discuss data types, plot types, and how to select color palettes.
@@ -82,3 +87,4 @@ Finally, we'll do some visual exploratory data analysis. Along the way I'll disc
 [10]: https://www.eia.gov/electricity/data/eia860
 [11]: https://ampd.epa.gov/ampd/
 [12]: https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html
+[13]: https://stackoverflow.com/a/44786736
