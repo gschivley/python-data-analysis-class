@@ -80,3 +80,6 @@ target/
 
 # zip compressed files
 *.zip
+
+# large csv file
+/data/large file/*
