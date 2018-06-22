@@ -2,6 +2,28 @@ import pandas as pd
 import calendar
 from data.convert_units import unit_conversion
 
+# Quick and dirty grouping of fuel codes to named categories
+FUEL_CAT_CODES = {
+    'COL': 'Coal',
+    'NG': 'Natural Gas',
+    'NUC': 'Nuclear',
+    'WND': 'Wind',
+    'SUN': 'Solar',
+    'DFO': 'Petroleum',
+    'RFO': 'Petroleum',
+    'HYC': 'Hydro',
+    'HPS': 'Other',
+    'GEO': 'Other',
+    'WOO': 'Other',
+    'WWW': 'Other',
+    'PC': 'Other',
+    'MLG': 'Other',
+    'WOC': 'Other',
+    'OTH': 'Other',
+    'ORW': 'Other',
+    'OOG': 'Other'
+}
+
 
 def clean_columns(columns):
     'Remove special characters and convert to snake case'
@@ -89,6 +111,9 @@ def import_plant_generation(path):
     df_tidy['month'] = df_tidy.month.str.capitalize().map(month_map)
     df_tidy.sort_values(by=['plant_id', 'month'], inplace=True)
     df_tidy.reset_index(drop=True, inplace=True)
+
+    # Group primary fuel codes to named categories
+    df_tidy['fuel_category'] = df_tidy['primary_fuel'].map(FUEL_CAT_CODES)
 
     return df_tidy
 
