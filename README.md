@@ -26,7 +26,7 @@ We will be using files in this GitHub repository. If you have git installed and 
 
 `git clone https://github.com/gschivley/python-data-analysis-class.git`
 
-If you don't know how to use git just download and unzip this repository into a directory of your choice.
+If you don't know how to use git just download and unzip this repository into a directory of your choice. It can be any directory where you would keep project files. The goal is to have a new folder (`python-data-analysis-class` or maybe `python-data-analysis-class-master` if you download the repository as a zip file) with the contents of this repository.
 
 ![download_zip](misc/github_download.png)
 
@@ -36,7 +36,7 @@ Each new project should start with a clean environment to ensure that you don't 
 I've included an `environment.yml` file in this repository. It has everything you need to recreate the environment I used to run the code in this tutorial. Learn more about how to [manage environments here][5]. New environments can be created with an `environment.yml` file (as described below) or using conda commands.
 
 To make things easy here are instructions for creating an environment from the `environment.yml` file:
-- Open terminal (Mac) or Anaconda Prompt (Windows) and navigate to this folder (`python-data-analysis-class`)
+- Open terminal (Mac) or Anaconda Prompt (Windows) and navigate to this folder (`python-data-analysis-class` or maybe `python-data-analysis-class-master` if you download the repository as a zip file).
   - If Anaconda Prompt isn't available on your Windows machine after installing Anaconda or Miniconda, try using the regular command prompt. Contact me if this doesn't work.
 - Once you are in the folder, type `conda env create -f environment.yml`
 - Conda will install Python, the required packages, and all necessary dependencies
